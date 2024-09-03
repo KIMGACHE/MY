@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{border: 1px solid;}
+        a{}
+        ul{}
+        .layout{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        body::-webkit-scrollbar{
+            display: none;
+        }
+        
+        .wrapper{
+            height: 100vh;
+        }
+        /* header */
+        .wrapper>header{
+            height:80px;
+        }
+        .wrapper>header>.top-header{}
+        .wrapper>header>nav{}
+
+        /* main */
+        .wrapper>main{}
+        .wrapper>main>section{}
+
+        /* footer */
+        .wrapper>footer{}
+    </style>
+
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header class="layout">
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section style="height:400px;">
+                <!-- 배너 -->
+            </section>
+            <section class="layout" style="height:200px"></section>
+            <section></section>
+            <section></section>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+</body>
+</html>

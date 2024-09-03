@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      :root {
+      }
+      * {
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+      .layout {
+        width: 1000px;
+        margin: 0 auto;
+      }
+
+      .wrapper {
+      }
+      .wrapper > header {
+      }
+      .wrapper > header > .top-header {
+        border-bottom: 1px solid black;
+        margin: 20px 0px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .wrapper > header > .top-header > .top-icons {
+        position:relative;
+        border : 1px solid;
+
+        width : 100px;
+        text-align: center;
+      }
+      .wrapper > header>.top-header>.top-icons>.icon{
+        width:100%;
+        height :100%;
+        position: relative;
+        top:calc(100% - 25px)
+
+      }
+
+      .wrapper > header > .top-header > .top-title {
+        justify-items: center;
+        font-size: 3rem;
+        font-weight: 600;
+      }
+
+      .wrapper > header > nav {
+      }
+      .wrapper > header > nav > .mainmenu {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid black;
+      }
+      .wrapper > header > nav > .mainmenu > li {
+        border: 1px solid;
+        width: 100%;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+      }
+      .wrapper > header > nav > .mainmenu > li:hover .submenu {
+        display: block;
+      }
+      .wrapper > header > nav > .mainmenu > li > .submenu {
+        border: 1px solid;
+        display: none;
+      }
+      .wrapper > header > nav > .mainmenu > li > .submenu > li {
+        border: 1px solid;
+      }
+      .logo {
+        width: 70px;
+        height: 70px;
+      }
+      .banner {
+        background-image: url('https://kream-phinf.pstatic.net/MjAyNDA4MjJfMSAg/MDAxNzI0MjkzMDQ2MzQ4.itQZjTT8fTPHLsCfpx0ytc8XGWACptyUH1O78ehARy0g.pXz_cOfegT4jp-YbbNtsVKqEhInm8cxei6GGZMF9V8wg.JPEG/a_bc3f0f69906a4b16abb5bc5bef4c7989.jpg?type=m_2560_webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 30%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="top-header">
+          <div class="top-logo">
+            <a href=""
+              ><img src="./images/Online Shop.png" class="logo" alt=""
+            /></a>
+          </div>
+          <div class="top-title">성현샵</div>
+          <div class="top-icons">
+            <a href=""class="icon" ><img src="./images/search.svg" alt="" /></a>
+            <a href=""class="icon"><img src="./images/shopping_cart.svg" alt="" /></a>
+            <a href=""class="icon"><img src="./images/person.svg" alt="" /></a>
+          </div>
+        </div>
+        <nav class="layout">
+          <ul class="mainmenu">
+            <li>
+              <a href="">Outer</a>
+              <ul class="submenu">
+                <li><a href="">Coat</a></li>
+                <li><a href="">Jacket</a></li>
+                <li><a href="">Cardigan</a></li>
+                <li><a href="">Padding</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="">Top</a>
+              <ul class="submenu">
+                <li><a href="">Tee</a></li>
+                <li><a href="">Shirts</a></li>
+                <li><a href="">MTM & Hood</a></li>
+                <li><a href="">Knit</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="">Bottom</a>
+              <ul class="submenu">
+                <li><a href="">Pants</a></li>
+                <li><a href="">Denim</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="">Shose</a>
+              <ul class="submenu">
+                <li><a href="">Sneaker</a></li>
+                <li><a href="">Canvas</a></li>
+                <li><a href="">Loafer</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="">ACC</a>
+              <ul class="submenu">
+                <li><a href="">Ring</a></li>
+                <li><a href="">Bracelet</a></li>
+                <li><a href="">Necklace</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section>
+            <div class="banner"></div>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+  </body>
+</html>

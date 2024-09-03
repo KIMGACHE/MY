@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .parent {
+            width: auto;
+            height: 300px;
+            background-color: royalblue;
+        }
+        .son {
+            width: 1000px;
+            max-width: 700px;
+            min-width: 500px;
+            height: 100%;
+            max-height: 250px;
+            min-height: 100px;
+            background-color: orange;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- 
+        width:  auto //너비 (default값이 auto임 - 브라우저의 너비만큼 넓어진다.)
+        height: auto;   // (default값이 auto임 - 최소한의 높이을 사용한다.)
+
+        min-width   : 최소 너비
+        max-width   : 최대 너비
+        min-height  : 최소 높이
+        max-height  : 최대 높이
+
+        자식이 부모보다 z-index값이 높음
+        브라우저는 좌측상단에서 오른쪽으로 갈수록 x축 값이 +
+        좌측상단에서 아래쪽으로 갈수록 y축 값이 +
+
+        height의 auto는 작아지려는 성질때문에 max-height가 의미가 없다.
+    -->
+
+    <div class="parent">
+        <div class="son">
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

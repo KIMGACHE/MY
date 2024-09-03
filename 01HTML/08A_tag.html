@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .btn {
+            display: block; /* 해당 클래스를 블록형태로 만들겠다. */
+             
+            height: 35px;
+            border-radius : 12px;
+            font-size : .9rem;
+            line-height: 35px; /* 수직관점에서 가운데 정렬한 것 */
+            text-align : center; /* 수평관점에서 가운데 정렬한 것 */
+            color: white;
+            box-shadow: 3px 3px 3px lightgray;
+            margin: 15px;
+            font-weight: 600;
+        }
+        .btn-primary{background-color: royalblue;}
+        .btn-secondary{background-color: orangered;}
+    </style>
+
+</head>
+<body>
+    <a href="" class="btn btn-primary">Button</a>
+    <a href="javascript:void(0)" class="btn btn-secondary">Button</a>
+    <hr>
+    <a href="https://www.naver.com">NAVER 이동</a> | 
+    <a href="https://www.naver.com" target="_blank">NAVER 이동(새로운 탭)</a> |
+    <a href="./02Basic.html">02Basic.html이동</a>
+    <hr>
+    <a href="./02Basic.html" target="frame1">02Basic.html로 이동</a> | 
+    <a href="https://www.daum.net" target="frame1">Daum으로 이동</a>
+    <br>
+    <iframe width="400px" height="500px" name="frame1">
+
+    </iframe>
+
+
+
+
+
+
+
+    
+</body>
+</html>

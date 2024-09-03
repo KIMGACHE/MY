@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+    <script>
+        // let, const를 통해 공간에 이름을 부여할 수 있다.
+        // 공간 = 값; 오른쪽 먼저 처리한다-> 데이터를 먼저 저장하고 그 뒤에 이름을 붙인다는 의미
+        // ' " 하나하나도 문자열로 취급한다.
+
+        // let : 변수 선언 예약어
+        // const : 심볼릭 상수 선언 예약어 (문자형 형태로 상수를 만들때 사용된다.)
+
+
+        let str1 = "hello";
+        let str2 = 'world';
+        console.log(str1 + str2); // +로 문자열과 문자열을 더하면 서로 연결된다.
+
+        str1 = "abcd";
+        console.log(str1);
+
+        const str3 = "Const Value"; // 심볼릭 상수 = 항상 같은 수를 상수라고 함, 그래서 안의 값을 변경하지 못하게끔 한다.
+        console.log(str3);
+
+        // str3 = "abcd"; // 오류가 발생한다.
+
+        // 보간법
+        // 변수,함수 호출 및 산술 표현식을 문자열에 삽입할 수 있는 기능
+        // ${value} 형식을 사용, 백틱(``)에만 사용가능.
+        let tmp = "VALUE";
+        console.log(`Test : ${1+2+3}`);
+        console.log(`Test2 : ${tmp}`);
+
+    </script>
+
+</body>
+</html>

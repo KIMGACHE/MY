@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .par{
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            overflow: auto;
+            /* hidden 넘친거를 가려줌 */
+            /* auto 스크롤을 만들어줌 */
+        }
+        /* .par::-webkit-scrollbar{
+            display: none;
+        } */
+        /* 스크롤 모양이나 숨기거나 */
+        .son{
+            width: 150px;
+            height: 450px;
+            background-color: royalblue;
+        }
+    </style>
+
+
+</head>
+<body>
+    <!-- 자식태그가 부모 태그보다 더 커지는 경우 -->
+    <div class="par">
+        <div class="son"></div>
+    </div>
+
+
+</body>
+</html>

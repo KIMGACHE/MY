@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .par{
+            height: 150px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap:wrap;
+        }
+        .son{
+            border:1px solid;
+            width: 150px;
+            /* height:40px; */
+            /* flex가 적용된 부모의 자식이 width가 더 큰 경우 다음 줄로 넘어가는것이 아니라
+            width가 자동으로 줄어든다 */
+            /* 이를 원래 width 그대로 쓰게하려면 flex-warp: warp이나 wrap-reverse를 쓰면됨. nowrap이 기본값 */
+        }
+        .son:nth-child(1){
+            /* align-items는 상위태그에서 사용하는 것 */
+            /* 수직배치위치를 자체적으로 적용가능 */
+            /* 높이를 최대한으로 사용 */
+            /* align-self: stretch; */
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 150px;
+        }
+        .son:nth-child(2){
+            /* 가장 아래에 배치 */
+            /* flex-grow: 너비가 증가하는 비율 */
+            /* align-self: flex-end; */
+            flex-grow: 2;
+            flex-shrink: 2;
+        }
+        .son:nth-child(3){
+            /* 가장 위에 배치 */
+            /* align-self: flex-start; */
+            /* flex-shrink: 너비가 축소하는 비율 */
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+        .son:nth-child(4){
+            /* flex-basis: nnn px 너비가 증가하거나 축소할 때 최소 값 설정 */
+            /* flex-shrink가 0일때 보통 설정한다 */
+            flex-grow: 0;
+        }
+        .son:nth-child(4){}
+        .son:nth-child(4){}
+        .son:nth-child(4){}
+        .son:nth-child(4){}
+    </style>
+
+</head>
+<body>
+    <!-- Flex는 하위 태그에 적용된다. -->
+     <!-- justify-content(수평배치형태): left, right, center,space -->
+    <!-- space-between : 요소요소 사이에 공간을 띄우지만 제일 가장자리는 띄우지않는다 -->
+     <!-- space-evenly : 모든 요소와 요소 사이에 공간을 띄운다. -->
+      <!-- space-around : 모든 요소와 요소 사이에 공간을 띄우고 제일 가장자리는 공간의 절반만큼 띄운다. -->
+       <!-- align-items(수직배치형태,height가 고려됨): center, flex-end(end), flex-start(start), stretch(기본값,모든 height를 사용), baseline -->
+        <!-- Flex 방향 -->
+         <!-- row(기본값), row-reverse(거꾸로), column(수직으로), column-reverse(거꾸로) -->
+    <div class="wrapper">
+        <div class="par">
+            <div class="son">1</div>
+            <div class="son">2</div>
+            <div class="son">3</div>
+            <div class="son">4</div>
+            <!-- <div class="son">5</div>
+            <div class="son">6</div>
+            <div class="son">7</div>
+            <div class="son">8</div>
+            <div class="son">9</div>
+            <div class="son">10</div>
+            <div class="son">11</div>
+            <div class="son">12</div>
+            <div class="son">13</div>
+            <div class="son">14</div>
+            <div class="son">15</div> -->
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #d1,#d2,#d3{
+            width: 150px; height:150px;
+            border:1px solid;
+        }
+        #d4{
+            width:350px; height:350px; border: 1px solid;
+        }
+        img{
+            width:100px; height:100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="d1"></div>
+    <a href="javascript:void(0)" id="d2">TEST</a>
+    <button onclick="count()">TEST</button>
+    <!-- onsubmit을 return false로 주면 어떤 버튼을 눌러도 전송하지않는다. -->
+    <form name="frm" action="test.jsp" onsubmit="return false"> 
+        <input type="text" name="userid">
+        <input type="text" name="password">
+        <input type="submit"  class="submit-button" value="버튼1">
+        <button class="submit-button" >버튼2</button>
+        <a href="javascript:void(0)" class="submit-button" >버튼3</a>
+    </form>
+    <hr>
+    <div id="d3"></div>
+    <hr>
+    <div class="image-block">
+        <img id="img" src="./banner.jpg" alt="">
+    </div>
+    <div id="d4"></div>
+
+    <script>
+        // 클릭이벤트
+        const d1Tag = document.getElementById("d1");
+        let cnt=0;
+        d1Tag.addEventListener('click',(e)=>{ // event객체를 e로 받음
+            
+            console.log("Click...",e.target)
+            d1Tag.innerHTML=`<h3>CLICKED...${++cnt}</h3>`;
+        })
+
+        const d2Tag = document.getElementById("d2");
+        d2Tag.addEventListener('click',(e)=>{
+            console.log("clicked a tag")
+        })
+
+        // closure함수
+        function clickHandler(){
+            let cnt=0;
+            function count() {
+                cnt++;
+                console.log("clicked...",cnt);
+            }
+            return count;
+        }
+        const count = clickHandler()
+
+        // form버튼 클릭 이벤트
+        const buttons = document.querySelectorAll(".submit-button");
+        console.log(buttons);
+        buttons.forEach((el)=>{
+            el.addEventListener('click', (e)=>{
+                console.log('clicked..',e.target)
+                if(!isValid(document.frm)){
+                    //문제발생 - 유효성 체크 오류
+                    return;
+                }
+                document.frm.submit();
+            })
+        })
+
+        function isValid(form){
+            // console.log("isValid",typeof form.userid.value);
+            if(form.userid.value.trim()==="") {
+                alert("ValidationCheck Error");
+                return false;
+            }
+            if(form.password.value.trim()==="") {
+                alert("ValidationCheck Error");
+                return false;
+            }
+            return true;
+        }
+
+        //  MouseOver /MouseLeave
+        const d3Tag = document.querySelector("#d3");
+        d3Tag.addEventListener('click',()=>{
+            d3Tag.innerHTML="<h3>CLIKED</h3>"
+        })
+        d3Tag.addEventListener('mouseover',()=>{
+            d3Tag.innerHTML="<h3>MouseOver</h3>"
+        })
+        d3Tag.addEventListener('mouseleave',()=>{
+            d3Tag.innerHTML="<h3>MouseLeave</h3>"
+        })
+
+        // drag, dragover dragstart dragend drop
+        const img = document.querySelector('.image-block');
+        const d4Tag = document.getElementById("d4");
+        // img.addEventListener('dragstart',(e)=>{
+        //     console.log("dragstart",e.target);
+        // })
+
+        d4Tag.addEventListener('dragover',(e)=>{ // 해당 태그에 드래그해서 들어올때
+            console.log("dragover",e);
+            e.preventDefault(); // 이게 없으면 drop작업이 적용안됨
+        })
+
+        // img.addEventListener('dragend',(e)=>{
+        //     console.log("dragend",e.target);
+        // })
+
+        d4Tag.addEventListener('drop',(e)=>{
+            console.log("drop",e);
+            console.log("drop",e.dataTransfer)
+            console.log("drop",e.dataTransfer.files)
+            console.log("drop",e.dataTransfer.files[0])
+            const file = e.dataTransfer.files[0];
+            console.log(file.type)
+            if( file.type.startsWith("image/") ) { // startsWith : 입력한 문자열로 시작한다면
+                console.log("Image 파일");
+                const imgTg=document.createElement('img');
+                imgTg.src=URL.createObjectURL(file);
+                imgTg.setAttribute("style","width:200px;height:200px;");
+                d4Tag.appendChild(imgTg);
+            }
+            e.preventDefault();
+        })
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="poppi.sound()">짖어</button>
+    <button onclick="poppi.toString()">정보</button>
+
+
+    <script>
+        // object : {Key: Value}
+        // 키와 밸류가 한 쌍을 이루면서 데이터를 저장하는 형태
+        // 
+
+        const poppi = {
+            //속성(field)
+            name:"뽀삐",
+            kind:"포메라니안",
+            age:1,
+            //기능(함수)
+            sound: ()=>{
+                alert(poppi.name+"이 소리를 냅니다.");
+            },
+            toString: ()=> {
+                alert(
+                    "이름 : " + poppi.name + "\n나이 : " + poppi.age + "\n견종 : " + poppi.kind 
+                )
+            }
+        };
+        console.log('이름 : ',poppi.name);
+        console.log('견종 : ',poppi.kind);
+        console.log('나이 : ',poppi.age);
+        // poppi.sound();
+
+        const myCar = {
+            // 속성과 기능을 작성한다.
+            // 속성 owner:소유자, cat: 차종, fuelkind:유종, speed: 현재속도
+            // 기능
+            owner: '김병관',
+            cat: '그랜저',
+            fuelkind: '휘발유',
+            speed: 72,
+
+            accel: () => {
+                myCar.speed = myCar.speed + 10;
+                alert("속도가 증가합니다. 현재속도 : " + myCar.speed);
+            },
+            break: () => {
+                myCar.speed = myCar.speed-10;
+                alert("속도가 감소합니다. 현재속도 : " + myCar.speed);
+            },
+            toString: ()=> {
+                console.log("Owner : " + myCar.owner + "\n차종 : " + myCar.cat + "\n유종 : " + myCar.fuelkind + "\n현재속도 : " + myCar.speed)
+            }
+        }
+
+        console.log(myCar.owner, myCar.cat, myCar.fuelkind, myCar.speed);
+        myCar.accel(); myCar.break(); myCar.toString();
+
+
+
+    </script>
+
+</body>
+</html>

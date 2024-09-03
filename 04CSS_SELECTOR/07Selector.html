@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .d1 {
+        width: 300px;
+        height: 200px;
+        background-color: orange;
+        border: 1px solid;
+      }
+      .d1::before{
+        content: '😍';
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        display: block;
+        font-size: 2rem;
+        text-align: center;
+        line-height: 5
+      }
+      .d1::after{
+        content: '_AFTER'
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        가상 선택자
+        ::before -> content영역 앞부분에 표시할 스타일
+        ::after -> content영역 뒷부분에 표시할 스타일
+        기본적으로 라인형이라 width height이 적용되지않ㅇ므
+    -->
+    <div class="d1">HELLOWORLD</div>
+  </body>
+</html>

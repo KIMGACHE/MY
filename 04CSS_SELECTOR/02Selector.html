@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            border:1px solid;
+            margin:5px;
+        }
+        /* 자식 선택자 (>) - 바로 1depth아래에 있는 */
+        .par>div {
+            background-color: aquamarine;
+        }
+        .par>p{
+            font-size: 2rem;
+        }
+        .par>.son>div {
+            background-color: skyblue;
+        }
+        /* 자손 선택자 (' '공백) - 자식 + 자식의 자식들 */
+        .par p {
+            background-color: royalblue;
+        }
+        .par div {
+            border:2px dotted blue;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    
+
+    <div class="par">
+        <div class="son">
+            <div>1.HELLO_WORLD</div>
+            <div>2.HELLO_WORLD</div>
+            <div>3.HELLO_WORLD</div>
+            <p>4.HELLOWORLD</p>
+        </div>
+        <div>5.HELLOWORLD</div>
+        <p>6.HELLOWORLD</p>
+    </div>
+
+
+</body>
+</html>

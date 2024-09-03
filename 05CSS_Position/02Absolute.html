@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .par{width:300px;background-color: orange;position:relative;}
+        .son{width:50px;height:50px;background-color: royalblue;border:1px solid;}
+
+        .son:nth-child(1){
+            position: absolute;
+            left:100px;
+            top:-25px;
+        }
+        .son:nth-child(2){
+            position: absolute;
+            left:20px;
+        }
+        /* 부모의 height를 지정하지 않고 자식의 position을 absolute로 설정하면 부모의 height가 줄어든다 */
+        .son:nth-child(3){
+            position: absolute;
+            right:0;
+            bottom: -10px;
+        }
+        .son:nth-child(4){}
+    </style>
+
+</head>
+<body>
+    
+    <div class="par">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+
+
+</body>
+</html>

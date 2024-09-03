@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 함수 : 데이터를 담아(받아) 특정 처리를 하는 논리적 공간 -->
+
+    <script>
+        // 01 기본형태
+        // 파라미터 O, 반환값 O
+        function f1(n1,n2){
+
+            return n1+n2;
+        }
+
+        // 파라미터 O, 반환값 X
+        function f2(n1,n2){
+
+        }
+
+        // 파라미터 X, 반환값 O
+        function f3(){
+
+            return 10+20;
+        }
+
+        // 파라미터 X, 반환값 X
+        function f4(){
+
+        }
+
+        // 화살표 함수 (()=>{})
+        const f_1 = (n1,n2)=>{return n1+n2;}
+        const f_2 = (n1,n2)=>{}
+        const f_3 = ()=>{return 10+20;}
+        const f_4 = ()=>{}
+
+        let num = f_1(10,20);
+        console.log(num);
+
+        // 02 반환자료형의 Object 처리
+        // 여러개를 반환해야한다면 Object를 만들어서 return해라
+        function f5(n1,n2,n3){
+            console.log('f5 내부로 진입...',n1,n2,n3);
+            
+            // return {arg1: n1, arg2:n2, arg3:n3};
+            return {
+                arg:n1,
+                arg:n2,
+                arg:n3,
+                sound: function(){console.log('sound');}
+            }
+        }
+        console.log(f5(10,'홍길동',true));
+
+        // 03 가변인자(...args)
+        function f6(...args){ // (n1,n2,...args) 처럼 고정된 인자를 넣고 이후를 가변 인자를 받을 수도 있다.
+            console.log(args);
+        }
+        f6(10,20,30,40,'홍길동',null,{name:'아무무',skill:'짜증내기',undefined});
+    </script>
+
+</body>
+</html>

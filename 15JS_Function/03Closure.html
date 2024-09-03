@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+
+    -->
+    <script>
+        //01 기본
+        // function outer(){
+        //     // 상태값
+        //     let state = 0;
+        //     function addStateOne(){
+        //         state++;
+        //         console.log("sur state Val: ", state);
+        //     }
+        //     return addStateOne;
+        //     // 함수 이름을 전달함, 함수 이름이 리턴되면 만들어진 함수의
+        // }
+
+        // const closureFunc = outer();
+        // // console.log(clousreFunc);
+        // closureFunc();
+        // closureFunc();
+        // closureFunc();
+
+        const func = ()=>{
+            //상태값
+            let num=0;
+
+            //num의 값을 증가하는데 사용되는 함수
+            const setNum = (n)=>{num+=n}
+
+            //num의 값을 확인하는데 사용되는 함수
+            const getNum = ()=>{
+                console.log("getNum Call..")
+                return num;
+            }
+
+            return { set: setNum, get: getNum};
+        }
+        const closure = func()
+        closure.set(10)
+        closure.set(20)
+        closure.set(30)
+        console.log(closure.get())
+    </script>
+</body>
+</html>

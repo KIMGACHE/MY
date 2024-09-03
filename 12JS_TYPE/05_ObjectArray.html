@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--  -->
+    <script src="./js/맛집.js"></script>
+</head>
+<body>
+    
+    <script>
+        // 전체정보
+        console.log("중구맛집ALL", 중구맛집);
+
+        // Data배열만 확인 status나 total을 제외
+        const 중구맛집_data = 중구맛집.data;
+        console.log("중구맛집_data",중구맛집_data);
+
+        // FD_CS(음식 카테고리)가 '한식'인 맛집만 추출
+        const 한식 = 중구맛집_data.filter((item)=>{return item.FD_CS==='한식'});
+        console.log("중구맛집_한식", 한식);
+        
+        // index가 1번인 식당 추출
+        const 춘천옥 = 한식[1];
+        console.log(춘천옥);
+
+        // 춘천옥 식당의 MNU(메뉴) 추출
+        let MNU = 춘천옥.MNU;
+        console.log(MNU);
+
+        // // Split을 이용한 배열처리, 배열로 저장이 된다.
+        // MNU = MNU.split('<br />');
+        // console.log(MNU);
+
+        // // {}로 감싼다는 것이 오브젝트로 return한다는 듯
+        // MNU = MNU.map((item)=>{
+        //     m = item.split(' ');
+        //     key = m[0];
+        //     value = item.substr(item.indexOf(" "), item.length).replaceAll(" ","");
+        //     return {"menu": key, "price": value};
+        // })
+
+        // 한식인 식당의 식당명과 메뉴종류, 가격만 추출
+        const 한식맛집 = 중구맛집_data.filter((item)=>{
+            return item.FD_CS==="한식";
+        }).map((item)=>{
+            MNU = item.MNU;
+            return {"BZ_NM":item.BZ_NM,"MNU":item.MNU};
+        });
+        console.log(한식맛집);
+
+
+        //-------------------------------------------------------------------------------------------------------------------
+
+        // //Split을 이용한 배열처리
+        MNU = MNU.split('<br />')
+        // console.log("MNU",MNU)
+
+        // //
+        MNU = MNU.map((item)=>{
+             const idx = item.search(/\d/)
+             key = item.substr(0,idx-1);
+             value=item.substr(idx,item.length).replaceAll(" ","");
+             return {"menu" : key , "price" : value}
+        })
+        console.log("MNU",MNU)
+
+
+        const order1=
+        [
+            {oid:"1111-1111",menu:MNU[0].menu ,price:MNU[0].price.replace('원',''),amt:1,date:new Date()}, //idx 0
+            {oid:"1111-1112",menu:MNU[1].menu ,price:MNU[1].price.replace('원',''),amt:2,date:new Date()}, //idx 1
+            {oid:"1111-1113",menu:MNU[2].menu ,price:MNU[2].price.replace('원',''),amt:3,date:new Date()}, //idx 2
+        ]
+        console.log("order1",order1);
+
+        // 총 결제해야되는 금액 map으로 추출
+        // 1 각 item당 price, amt를 추출(forEach, (map)!!!!, fileter, reduce)
+        // 2 price*amt 구하고 (reduce)
+        // 3 price*amt의 누적합 구하기 (reduce)
+
+        // const 결제금액 = order1.reduce((sum,item)=> {
+        //     price = item.price.replace(',','');
+        //     amt = item.amt;
+        //     parseInt(price);
+        //     parseInt(amt);
+        //     total = (price*amt);
+        //     parseInt(total)
+        //     console.log(typeof total)
+        //     sum = sum + (total);
+        // },0);
+
+        const 금액 = order1.map((item)=>{
+            price = item.price.replace(',','');
+            amt = item.amt;
+            return parseInt(price*amt);
+        })
+
+        console.log(금액);
+        금액.forEach((item)=>{console.log(typeof item)})
+
+        const 결제금액 = 금액.reduce((sum,item)=>sum=sum+item,0)
+
+        console.log({"총계 : ":결제금액});
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

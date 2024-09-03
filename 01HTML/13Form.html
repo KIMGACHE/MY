@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- BootStrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- 
+        form : 사용자로부터 특정정보를 받아 서버로 전달하는데 사용되는 태그
+        action attribute : 전달받는 서버 API()(or Endpoint)
+        method Attribute : 서버로 요청하는 방식
+            - GET       : 사용자 요청 정보를 Query string으로 전달(default)
+            - POST      : 사용자 요청 정보를 Request body에 담아 전달(optional)
+            - PUT       :
+            - PATCH     :
+            - DELETE    :
+    
+    
+    -->
+    <style>
+        label {
+            font-size: .8rem;
+            font-weight: 600;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+    <form
+      action="test.jsp"
+      method="GET"
+      class="container w-50"
+      style="min-width: 380px"
+    >
+      <h2>회원가입</h2>
+      <div class="mb-2">
+        <label for="userID">ID : </label><br />
+        <input
+          class="form-control"
+          type="text"
+          name="userID"
+          id="userID"
+          placeholder="아이디를 입력하세요"
+          required
+        />
+      </div>
+      <!-- 필수로 들어가야하는 항목이면 required옵션 -->
+      <div class="mb-2">
+        <label for="password">Password : </label><br />
+        <input
+          class="form-control"
+          type="password"
+          name="password"
+          id="password"
+          disabled
+        />
+      </div>
+      <div class="mb-2">
+        <label for="repassword">Password check : </label><br />
+        <input
+          class="form-control"
+          type="password"
+          name="repassword"
+          id="repassword"
+        />
+      </div>
+      <div class="mb-2">
+        <label for="email">Email : </label><br />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-control"
+          readonly
+        />
+      </div>
+      <!-- 수정을 할 수 없게끔 할거라면 readonly value를 지정해서 제출하면 query에 실린다.-->
+      <!-- 아예 입력을 못하게 하려면 disabled value를 지정해서 제출해도 query에 실리지않는다 -->
+      <div class="mb-2">
+        <label for="age">Age : </label><br />
+        <input type="number" name="age" min="5" max="70" step="3" id="age" />
+      </div>
+      <div class="mb-2">
+        <label for="tel">TEL : </label><br />
+        <input
+          type="tel"
+          name="tel"
+          pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"
+          class="form-control"
+          id="tel"
+        />
+      </div>
+      <div class="mb-2">
+        <label for="addr">기본주소 : </label><br />
+        <input type="text" name="addr" id="addr" class="form-control" />
+      </div>
+      <div class="mb-2">
+        <label for="addr_s">상세주소 : </label><br />
+        <input type="text" name="addr_s" id="addr_s" class="form-control" />
+      </div>
+      <div class="mb-2">
+        <label for="gender">성별</label><br />
+        <!--둘중하나 name이 동일해야한다.대신 value 실제 전달되는 값을 다르게 지정한다.-->
+        <input type="radio" name="gender" id="gender" value="M" />남자
+        <input type="radio" name="gender" id="gender" value="F" />여자
+      </div>
+      <div class="mb-2">
+        <label for="hobby">취미 : </label><br />
+        <input type="checkbox" name="hobby" value="claim" /> 등산
+        <input type="checkbox" name="hobby" value="game" /> 게임
+        <input type="checkbox" name="hobby" value="cook" /> 요리
+        <input type="checkbox" name="hobby" value="coding" /> 코딩
+      </div>
+      <!-- 동일한 파라미터에 여러개의 데이터가 입력으로 들어오는 경우 -->
+      <div class="mb-2">
+        <label for="">File : </label><br />
+        <input type="file" name="files" multiple class="form-control" />
+        <!-- multiple 옵션을 통해 여러개의 파일 -->
+      </div>
+      <div class="mb-2">
+        <label for="">DATE : </label><br />
+        <input type="date" name="date" class="form-control" />
+      </div>
+      <!-- date타입은 2024-08-20으로 전달한다. -->
+      <div class="mb-2">
+        <label for="">DATE : </label><br />
+        <input type="datetime-local" name="date" class="form-control" />
+      </div>
+      <!-- datetime-local타입은 연월일 시분이 date=2024-08-20T12%3A50로 전달 -->
+      <div class="mb-2">
+        <label for="">COLORS </label><br />
+        <input type="color" name="color" />
+      </div>
+      <div class="mb-2">
+        <label for="">Range </label><br />
+        <input type="range" name="range" min="0" max="100" value="30" />
+      </div>
+      <div class="mb-2">
+        <label for="">URL : </label><br />
+        <input type="url" name="url" class="form-control" />
+      </div>
+      <!-- 기본적으로 유효한 URL주소인지 확인한다. -->
+
+      <div class="mb-2">
+        <label for="locaion">지역</label><br />
+        <select name="location" class="form-select" id="location">
+          <option value="대구">대구</option>
+          <option value="울산">울산</option>
+          <option value="포항" selected>포항</option>
+          <option value="부산">부산</option>
+        </select>
+      </div>
+
+      <div class="mb-2">
+        <label for="memo">MEMO</label><br />
+        <textarea
+          name="memo"
+          id="memo"
+          rows="10"
+          cols="50"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <div class="mb-2">
+        <!-- <input type="submit" value="회원가입" /> -->
+        <button class="btn btn-primary w-100">회원가입</button>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+:root{}
+
+*{}
+ul{}
+a{}
+
+body{}
+
+.wrapper{}
+.wrapper>header{}
+.wrapper>header>.top-header{}
+.wrapper>header>nav{}
+
+.wrapper>main{}
+.wrapper>main>section{
+    margin-bottom: 20px;
+}
+.wrapper>main>section:nth-child(1) .carousel-control-prev,
+.wrapper>main>section:nth-child(1) .carousel-control-next{
+    width:50px;
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 15p;
+    position: absolute;
+    top: 50%;
+    }
+.wrapper>main>section:nth-child(1) .carousel-control-prev{
+    left: calc(360px + 30px);
+}
+.wrapper>main>section:nth-child(1) .carousel-control-next{
+    left: calc(360px + 80px);
+}
+
+.carousel-captionP{
+    color: gray;
+    position: absolute;
+    left:0;
+    top:0;
+
+    width: 100%;
+}
+
+.carousel-control-prev-icon{}
+.carousel-control-next-icon{
+    color: gray
+}
+
+.wrapper>main>section:nth-child(2){}
+.wrapper>main>section:nth-child(2)>.cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.wrapper>main>section:nth-child(3){
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.wrapper>main>section:nth-child(3)>.left{
+    width: calc(50% - 10px);
+}
+.wrapper>main>section:nth-child(3)>.right{
+    width: calc(50% - 10px);
+}
+
+
+
+
+.wrapper>footer{
+    height: 300px;
+    background-color: rgb(35,35,35);
+}

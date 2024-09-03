@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .slider-block{
+            width: 1200px;
+            height: 150px;
+            border: 1px solid;
+            margin: 0 auto;
+            /* overflow: hidden; */
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+        }
+        .slider-block>.slider-wrapper{
+            width: 3000px;
+            height: 150px;
+            border: 1px solid;
+
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            position: relative;
+            transition: 1s;
+        }
+        .slider-block>.slider-wrapper>.item{
+            width: 150px;
+            height: 100px;
+            border: 1px solid;
+            margin: 0 10px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+
+        /* input */
+        .slider-block>input[type="radio"]{
+            display: none;
+        }
+
+
+        /* label */
+        .slider-block>label{
+            width: 25px;
+            height: 25px;
+            
+            border: 1px solid;
+            border-radius: 50%;
+
+            top: calc(50% - 12.5px);
+
+            position: absolute;
+            z-index: 5;
+            cursor: pointer;
+        }
+        .slider-block>label.prev{
+            left:3px;
+        }
+        .slider-block>label.next{
+            right:3px;
+        }
+        .slider-block>label>img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .slider-block>input[type="radio"]#next:checked~.slider-wrapper{
+            left: -1380px;
+        }
+        .slider-block>input[type="radio"]#prev:checked~.slider-wrapper{
+            left: 0px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="slider-block">
+        <input type="radio" name="radio" id="prev" checked>
+        <label class="prev" for="prev"><img src="./images/left_arrow.png" alt=""></label>
+        <input type="radio" name="radio" id="next">
+        <label class="next" for="next"><img src="./images/right_arrow.png" alt=""></label>
+        <div class="slider-wrapper">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+            <div class="item">11</div>
+            <div class="item">12</div>
+            <div class="item">13</div>
+            <div class="item">14</div>
+            <div class="item">15</div>
+        </div>
+    </div>
+</body>
+</html>

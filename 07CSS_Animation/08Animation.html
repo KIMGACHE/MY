@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      div {
+        width: 400px;
+        height: 40px;
+        background-color: orange;
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        border: 1px solid black;
+
+        position: absolute;
+      }
+      div:nth-child(1) {
+        animation-name: moving1;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease;
+      }
+      div:nth-child(2) {
+        animation-name: moving2;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease;
+      }
+      div:nth-child(3) {
+        animation-name: moving3;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease;
+      }
+
+      @keyframes moving1 {
+        from {
+          top: 100%;
+          left: 50%;
+        }
+        to {
+          top: 50%;
+          left: 50%;
+        }
+      }
+      @keyframes moving2 {
+        from {
+          top: 10%;
+          left:100%;
+        }
+        to {
+          top: 54.5%;
+          left: 50%;
+        }
+      }
+      @keyframes moving3 {
+        from {
+          top: 85%;
+          left:100%;
+        }
+        to {
+          top: 59%;
+          left: 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>HELLOWORLD1</div>
+    <div>HELLOWORLD2</div>
+    <div>HELLOWORLD3</div>
+  </body>
+</html>
