@@ -127,8 +127,11 @@ body {
 
 /* main */
 
-.wrapper>main{}
-.wrapper>main>section{}
+.wrapper>main{
+}
+.wrapper>main>section{
+    width: 1500px;
+}
 
 /* section1 */
 /* section1 > product */
@@ -197,8 +200,6 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.wrapper>main>section:nth-child(1)>.product>.info>.p_option>label{}
-.wrapper>main>section:nth-child(1)>.product>.info>.p_option>select{}
 .wrapper>main>section:nth-child(1)>.product>.info>.tot_price{
     font-size: .8rem;
     font-weight: 600;
@@ -275,23 +276,26 @@ body {
 
 /* section2 */
 .wrapper>main>section:nth-child(2){
+    width: 100%;
     display: flex;
     flex-direction: column;
-    border: 1px solid;
 }
 /* section2 > menu */
 .wrapper>main>section:nth-child(2)>.menu{
     width: 100%;
     height: 100%;
-    padding: 20px 0;
 }
 .wrapper>main>section:nth-child(2)>.menu>ul{
     display:flex;
     justify-content: space-between;
     align-items: center;
+
 }
 .wrapper>main>section:nth-child(2)>.menu>ul>li{
-    width: 20%;
+    /* width: 15.625vw; */
+    width:300px;
+    height: 4.63vh;
+
 }
 .wrapper>main>section:nth-child(2)>.menu>ul>li>a{
     width: 100%;
@@ -300,24 +304,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1.5px solid lightgrey;
+    color: grey;
 }
-.wrapper>main>section:nth-child(2)>.menu>ul>li>a:nth-child(1):active{
-    border: 1px solid;
+.wrapper>main>section:nth-child(2)>.menu>ul>li:hover a{
+    border: 1.5px solid black;
     border-bottom: none;
+    color: black;
 }
-.wrapper>main>section:nth-child(2)>.menu>ul>li>a:nth-child(2){}
-.wrapper>main>section:nth-child(2)>.menu>ul>li>a:nth-child(3){}
-.wrapper>main>section:nth-child(2)>.menu>ul>li>a:nth-child(4){}
-.wrapper>main>section:nth-child(2)>.menu>ul>li>a:nth-child(5){}
+.wrapper>main>section:nth-child(2)>.menu>ul>li:hover+.specify{
+    border: 1.5px solid black;
+}
 
 /* section2 > specify */
-.wrapper>main>section:nth-child(2)>.specify{
+.specify{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: start;
+
     width: 100%;
-    height: 5000px;
+    height: 2000px;
 }
-.wrapper>main>section:nth-child(2){}
-.wrapper>main>section:nth-child(2){}
-.wrapper>main>section:nth-child(2){}
+.specify>img{
+    width: 50%;
+    height: 20%;
+    object-fit: cover;
+}
+
 
 
 /* footer */
