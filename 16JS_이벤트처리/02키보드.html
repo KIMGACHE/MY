@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    KEYUP : <input id="input1"><br>
+    <p id="p1"></p>
+    <hr>
+    KEYDOWN : <input id="input2"><br>
+    <p id="p2"></p>
+    <hr>
+    KEYPRESS : <input id="input3"><br>
+    <p id="p3"></p>
+    <hr>
+
+    <script>
+        // KEYUP : 키보드가 (내려간 상태에서)올라올 때
+        const keyupEl = document.querySelector("#input1");
+        const p1El = document.querySelector("#p1");
+        keyupEl.addEventListener('keyup', (e)=>{
+            console.log('keyup', e);
+            // console.log('keyup', e.key);
+            // console.log('keyup', e.keyCode);
+            p1El.innerHTML=e.key+" "+e.keyCode;
+        })
+        // e를 보면 key에는 문자열로 누른 키가 저장되고, keyCode에는 아스키코드로 누른 키가 저장된다. 아스키 코드는 대소문자 구분이 안되는듯? shift키도 keyup에 표시되니
+
+
+
+
+
+        // KEYDOWN : 키보드가 내려갈 때
+        const keydownEl = document.querySelector("#input2");
+        const p2El = document.querySelector("#p2");
+        keydownEl.addEventListener('keydown', (e)=>{
+            console.log('keydown', e);
+            p2El.innerHTML=e.key+" "+e.keyCode;
+        })
+
+        // KEYPRESS : 키보드를 계속 누를 때
+        const keypressEl = document.querySelector("#input3");
+        const p3El = document.querySelector("#p3");
+        keypressEl.addEventListener('keypress', (e)=>{
+            console.log('keypress', e);
+            p3El.innerHTML=e.key+" "+e.keyCode;
+        })
+        // keypress의 경우 아스키코드가 대소문자를 구분하지만, enter를 제외한 대부분의 escape문자를 인식하지 못한다 ex: alt, crtl, tap, esc, backspace등등
+        // 
+        // 
+        // 
+    </script>
+
+</body>
+</html>

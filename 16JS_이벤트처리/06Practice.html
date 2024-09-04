@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        td{width :50px;height:50px;border : 1px solid gray;}
+        input{width:90%; height:100%;outline:none;border:0px;}
+    </style>
+    
+    <input id="rownum" placeholder="행의개수입력" style="width:200px;">
+    <input id="colnum" placeholder="열의개수입력" style="width:200px;">
+    <button id="btn">생성</button>
+
+    <hr>
+    <table id="tbl">
+    </table>
+    <script>
+        const rowEl = document.getElementById('rownum');
+        const colEl = document.getElementById('colnum');
+        const table = document.getElementById('tbl');
+        const btn = document.getElementById('btn');
+
+        // 테이블 생성
+        btn.addEventListener('click',(e)=>{
+            const row= rowEl.value;
+            const col= colEl.value;
+            for(i=0;i<row;i++){
+                let trObj = document.createElement('tr')
+                for(j=0;j<col;j++){
+                    let tdObj = document.createElement('td');
+                    trObj.appendChild(tdObj);
+                    tdObj.setAttribute("id",(i+1)+"|"+(j+1));
+                }
+                table.appendChild(trObj);
+            }
+            // 마우스오버 시 색 변경
+            const td = document.querySelectorAll('td');
+            td.forEach((item)=>{
+                item.addEventListener('mouseover',(e)=>{
+                    item.style.backgroundColor="gray";
+                })
+                item.addEventListener('mouseleave',(e)=>{
+                    item.style.backgroundColor="white";
+                })
+            })
+
+            // //키보드 이벤트 처리
+            // document.addEventListener('keydown',(e)=>{
+            //     if(e.keyCode===37 && curX-1>=0) { // 좌
+            //         document.getElementById(curY+"|"+curX).style.backgroundColor("gray");
+            //         curX -=1;
+            //     }
+            //     if(e.keyCode===39 && curX+1<=col) { // 우
+            //         document.getElementById(curY+"|"+curX).style.backgroundColor("gray");
+            //         curX +=1;
+            //     }
+            //     if(e.keyCode===38 && curY-1>=0) { // 상
+            //         document.getElementById(curY+"|"+curX).style.backgroundColor("gray");
+            //         curY -=1;
+            //     }
+            //     if(e.keyCode===40 && curY+1<=row) { // 하
+            //         document.getElementById(curY+"|"+curX).style.backgroundColor("gray");
+            //         curY +=1;
+            //     }
+            // })
+
+            curX = Math.ceil(col/2);
+            curY = Math.ceil(row/2);
+
+
+        })
+
+
+    </script>
+    
+</body>
+</html>
