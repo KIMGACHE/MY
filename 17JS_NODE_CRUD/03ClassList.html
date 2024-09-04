@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        .btn{
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            font-size: .8rem;
+
+            transition: .3s;
+        }
+        .btn--st0{color:white;background-color:red}
+        .btn--st1{color:white;background-color:orange}
+        .btn--st2{color:white;background-color:yellow}
+        .btn--st3{color:white;background-color:yellowgreen}
+        .btn--st4{color:white;background-color:green}
+        .btn--st5{color:white;background-color:blue}
+        .btn--st6{color:white;background-color:navy}
+        .btn--st7{color:white;background-color:violet}
+    </style>
+
+  </head>
+  <body>
+    <button class="btn">Button_01</button>
+    <button class="btn">Button_02</button>
+    <button class="btn">Button_03</button>
+    <button class="btn">Button_04</button>
+    <button class="btn">Button_05</button>
+    <button class="btn">Button_06</button>
+    <button class="btn">Button_07</button>
+    <button class="btn">Button_08</button>
+
+    <script>
+        const btnEls = document.querySelectorAll('.btn');
+        btnEls.forEach((el,idx)=>{ // 탐색되는 요소요소마다 index를 부여하는데 그 index를 가져올 수 있다
+            el.addEventListener('mouseover', ()=>{
+                console.log('mouseover idx', idx);
+                el.classList.add(`btn--st${idx}`);
+                // 이 요소가 가지고 있는 모든 class를 리스트화 해준다. add를 통해 class를 추가할 수 있다.
+            })
+            el.addEventListener('mouseleave', ()=>{
+                console.log('mouseleave idx', idx);
+                el.classList.remove(`btn--st${idx}`)
+                // remove를 통해 class를 삭제할 수 있다.
+            })
+        })
+    </script>
+  </body>
+</html>

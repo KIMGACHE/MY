@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="test1.jsp">
+        <input type="text">
+        <input type="text">
+    </form>
+    <hr>
+    <form action="test2.jsp" name="frm2">
+        <input type="text" name="userid">
+        <input type="text" name="password">
+    </form>
+    <hr>
+    <form action="test3.jsp">
+        <input type="text">
+        <input type="text">
+    </form>
+
+    <script>
+        // 모든 form찾기, 유사배열이다. (key,value)형태로 저장되어있음
+        const formEls = document.forms;
+        console.log(formEls);
+        // 개별 form접근
+        console.log(formEls[0]);
+        console.log(formEls[1]);
+        console.log(formEls[2]);
+        // Array.from을 사용하여 forEach사용하는 방법
+        Array.from(formEls).forEach((item)=>{
+            console.log(item)
+        })
+
+        // name으로 개별 접근
+        const form2El = document.frm2;
+        form2El.userid.value='aaa';
+        form2El.action="abc.jsp"
+        form2El.submit();
+
+    </script>
+
+</body>
+</html>

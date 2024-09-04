@@ -10,23 +10,23 @@
 
     -->
     <script>
-        //01 기본
-        // function outer(){
-        //     // 상태값
-        //     let state = 0;
-        //     function addStateOne(){
-        //         state++;
-        //         console.log("sur state Val: ", state);
-        //     }
-        //     return addStateOne;
-        //     // 함수 이름을 전달함, 함수 이름이 리턴되면 만들어진 함수의
-        // }
+        // 01 기본
+        function outer(){
+            // 상태값
+            let state = 0;
+            function addStateOne(){
+                state++;
+                console.log("sur state Val: ", state);
+            }
+            return addStateOne;
+            // 함수 이름을 전달함, 함수 이름이 리턴되면 만들어진 함수의
+        }
 
-        // const closureFunc = outer();
-        // // console.log(clousreFunc);
-        // closureFunc();
-        // closureFunc();
-        // closureFunc();
+        const closureFunc = outer();
+        console.log(closureFunc);
+        closureFunc();
+        closureFunc();
+        closureFunc();
 
         const func = ()=>{
             //상태값

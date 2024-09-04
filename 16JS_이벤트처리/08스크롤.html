@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 5000px;
+            height:7000px;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('scroll',(e)=>{
+            console.log("Scroll...",e);
+            // console.log("window.scrollX: ", window.scrollX);
+            // window.scrollX 문서의 수평 스크롤의 위치값을 갖고있다. 뷰포트에서 가장 왼쪽의 가로축을 기준으로 한다.
+
+            // console.log("window.scrollY: ", window.scrollY);
+            // window.scrollY 문서의 수직 스크롤의 위치값을 갖고있다. 뷰포트에서 가장 위쪽의 세로축을 기준으로 한다.
+
+            console.log('document.scrolllTop', document.documentElement.scrollTop);
+            console.log('document.scrolllHeight', document.documentElement.scrollHeight);
+
+        })
+    </script>
+</body>
+</html>
