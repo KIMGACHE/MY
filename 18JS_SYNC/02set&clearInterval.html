@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="javascript:void(0)" class="startBtn">실행</a>
+    <a href="javascript:void(0)" class="stopBtn">중지</a>
+    <hr>
+    <div class="box"></div>
+
+
+
+    <script>
+        // 종료신호를 주기전까지 계속 실행함.
+
+        const startBtn = document.querySelector('.startBtn');
+        const stopBtn = document.querySelector('.stopBtn');
+        const box1 = document.querySelector('.box');
+        let id=null;
+        let count=0;
+        startBtn.addEventListener('click',()=>{
+            console.log('startBtn..');
+            id=setInterval(()=>{
+                box1.innerHTML+=`Batch start ${++count}<br>`;
+            },1000);
+        })
+
+        stopBtn.addEventListener('click',()=>{
+            console.log('stopBtn..');
+            clearInterval(id);
+        })
+        // timeout과 같이 각 작업흐름마다 부여받는 index가 있고 이를 통해 중지시킬 수 있다.
+    </script>
+
+</body>
+</html>

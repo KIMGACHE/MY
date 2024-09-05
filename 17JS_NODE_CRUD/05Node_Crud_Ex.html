@@ -64,6 +64,7 @@
                 <th>이름</th>
                 <th>나이</th>
                 <th>주소</th>
+                <th>수정</th>
                 <th>삭제</th>
             </tr>   
         </thead>
@@ -93,17 +94,37 @@
             const userAddr = document.getElementsByName('address');
             const userAddrT = userAddr[0].value;
 
-            createNode(userNameT,userAgeT,userAddrT);
-            userName[0].value="";
-            userAge[0].value="";
-            userAddr[0].value="";
+            const form = document.joinForm;
+
+            if(!isValid(form)){
+                
+            } else {
+                createNode(userNameT,userAgeT,userAddrT);
+                userName[0].value="";
+                userAge[0].value="";
+                userAddr[0].value="";
+            }
         })
 
         //유효성검사 함수(Validation Check )
-        function isValid(){
+        function isValid(form){
+            if(form.username.value.trim()==="") {
+                alert("이름을 입력하세요..")
+                return false;
+            }
+            if(form.age.value.trim()==="") {
+                alert("나이를 입력하세요..")
+                return false;
+            }
+            if(form.address.value.trim()==="") {
+                alert("주소를 입력하세요..")
+                return false;
+            }
+
+            return true;
         }
 
-        
+        isEdited = true;
         //노드생성 함수
         function createNode(name,age,addr){
             const table = document.querySelector('tbody');
@@ -111,11 +132,43 @@
             const newName = document.createElement('td');
             const newAge = document.createElement('td');
             const newAddr = document.createElement('td');
+            const modify = document.createElement('td');
             const delbtn = document.createElement('td');
-            newName.innerHTML=name;
-            newAge.innerHTML=age;
-            newAddr.innerHTML=addr;
+
+            const in1 = document.createElement('input');
+            const in2 = document.createElement('input');
+            const in3 = document.createElement('input');
+            in3.setAttribute('style', 'width:90%;');
+
+            newName.appendChild(in1);
+            newAge.appendChild(in2);
+            newAddr.appendChild(in3);
+
+            in1.value=name;
+            in2.value=age;
+            in3.value=addr;
+            in1.readOnly=true;
+            in2.readOnly=true;
+            in3.readOnly=true;
+
+            modify.innerHTML="Edit";
             delbtn.innerHTML="X";
+            modify.setAttribute('style','cursor:pointer;')
+            delbtn.setAttribute('style','cursor:pointer;')
+            modify.addEventListener('click', ()=>{
+                if(isEdited){
+                    in1.readOnly=false;
+                    in2.readOnly=false;
+                    in3.readOnly=false;
+                    isEdited = !isEdited;
+                } else {
+                    in1.readOnly=true;
+                    in2.readOnly=true;
+                    in3.readOnly=true;
+                    isEdited = !isEdited;
+                }
+            })
+
 
             delbtn.addEventListener('click', ()=>{
                 newTr.remove();
@@ -125,6 +178,7 @@
             newTr.appendChild(newName);
             newTr.appendChild(newAge);
             newTr.appendChild(newAddr);
+            newTr.appendChild(modify);
             newTr.appendChild(delbtn);
 
         }

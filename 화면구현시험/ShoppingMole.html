@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./common.css" />
+    <link rel="stylesheet" href="./specify.css" />
+    <link rel="stylesheet" href="./specify2.css" media="all and (max-width:1500px)"/>
   </head>
 
   <body>
@@ -119,19 +121,27 @@
                     -[필수]옵션을 선택해주세요-
                   </option>
                   <option value="category" style="font-weight: 600">
-                    SIZE-COLOR
+                    SIZE-COLOR:
                   </option>
                   <option value="fw">FREE-화이트</option>
                   <option value="fb">FREE-백멜란지</option>
                   <option value="fw">FREE-네이비</option>
-                  <option value="fl">FREE-블랙</option>
+                  <option value="fl">FREE-블랙 (+10,000)</option>
                 </select>
+              </div>
+              <div class="p_qty">
+                <span>수량:</span>
+                <div>
+                  <span id="qty">0개</span>
+                  <button id="btnUp">⬆</button>
+                  <button id="btnDown">⬇</button>
+                </div>
               </div>
               <div class="tot_price">
                 <span>총 상품금액</span>
                 <div>
-                    <span>0</span>
-                    <span style="font-size: 0.6rem; font-weight:400;">(0개)</span>
+                    <span id="t_price">0원</span>
+                    <span style="font-size: 0.6rem; font-weight:400;" id="t_qty">(0개)</span>
                 </div>
               </div>
               <div class="buy">
@@ -145,15 +155,24 @@
         <section>
           <div class="menu">
             <ul>
-              <li><a href="">상품상세정보</a></li>
-              <li><a href="">쇼핑가이드</a></li>
-              <li><a href="">관련상품</a></li>
-              <li><a href="">사용리뷰</a></li>
-              <li><a href="">Q&A</a></li>
+              <li><a href="javascript:void(0)">상품상세정보</a></li>
+              <li><a href="javascript:void(0)">쇼핑가이드</a></li>
+              <li><a href="javascript:void(0)">관련상품</a></li>
+              <li><a href="javascript:void(0)">사용리뷰</a></li>
+              <li><a href="javascript:void(0)">Q&A</a></li>
             </ul>
           </div>
           <div class="specify">
-            <img src="./specify.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/99327d1d44faf37a482d1db8bf8c884c.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/056cc3f30c40534ea23efea0d3a42c4e.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/89adfdb0ce2c6a11ba6604de48437a4d.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/663bcfb90c7db5b7912fd79c9ac1bec6.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/2749474083e35a9235702a816c66b594.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/7a83c1fa256c72dbef36ebfc0067fa53.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/a4169bd72b2674a35e9b82bf06522c41.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/de7d8d5e4841288c859b11973b35f03c.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/68b00e96d5a511fd49465480a9d18e39.jpg" alt="">
+            <img src="https://cafe24.poxo.com/ec01/shyness0728/PqYAeXr9cC3ewV7j5+hciyNZGyxGxOcI5JQLYg8DJjzSxWF6/zupprXvWZJi83tISE+0VkWPzXB1VR1WnT5FNQ==/_/web/upload/NNEditor/20240423/cb00f927f3fc6008778e3c224fbce7cf.jpg" alt="">
           </div>
         </section>
       </main>
@@ -184,5 +203,45 @@
         </div>
       </footer>
     </div>
+
+    <script>
+      const qty = document.getElementById('qty');
+      const upBtn = document.getElementById('btnUp');
+      const downBtn = document.getElementById('btnDown');
+      const t_qty = document.getElementById('t_qty');
+      const t_price = document.getElementById('t_price');
+
+      let count=0;
+      upBtn.addEventListener('click',()=>{
+        const sizeColor = document.getElementsByName('size_color');
+        if(sizeColor[0].value!=='none'&& sizeColor[0].value!=='category'){
+          count++;
+          qty.innerHTML=`${count}개`;
+          t_qty.innerHTML=`(${count}개)`;
+          t_price.innerHTML=`${totalPrice(sizeColor[0].value, count)}원`;
+        }
+      })
+      downBtn.addEventListener('click',()=>{
+        const sizeColor = document.getElementsByName('size_color');
+        if(sizeColor[0].value!=='none'&& sizeColor[0].value!=='category'){
+          if(count!=0){
+            count--;
+            qty.innerHTML=`${count}개`;
+            t_qty.innerHTML=`(${count}개)`;
+            t_price.innerHTML=`${totalPrice(sizeColor[0].value, count)}원`;
+          }
+        }
+      })
+
+      function totalPrice(value) {
+        if(value==='fw' || value==='fb' || value==='fw') {
+          return 29000*count;
+        } else if(value==='fl'){
+          return 39000*count;
+        }
+      }
+
+
+    </script>
   </body>
 </html>

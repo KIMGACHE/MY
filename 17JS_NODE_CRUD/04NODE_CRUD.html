@@ -1,73 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <style>
-        .todo{
-            width:500px;
-            height:50px;
-            border: 1px solid;
-            margin: 5px;
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            gap: 10px;
-        }
+      .todo {
+        width: 500px;
+        height: 50px;
+        border: 1px solid;
+        margin: 5px;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        gap: 10px;
+      }
     </style>
-</head>
-<body>
-    <input type="text" class="add" placeholder="할 일 입력">
+  </head>
+  <body>
+    <input type="text" class="add" placeholder="할 일 입력" />
     <a href="javascript:void(0)" class="addBtn">입력</a>
-    <hr>
+    <hr />
     <div class="container"></div>
 
     <script>
-        // input 엔터기에 대한 이벤트
-        const addEl = document.querySelector(".add");
-        addEl.addEventListener('keydown', (e)=>{
-            const keyCode = e.keyCode;
-            const text = addEl.value;
-            if(keyCode===13){
-                addNode(text);
-                addEl.value="";
-            }
-        })
-
-        // 입력버튼 클릭했을 때에 대한 이벤트
-        const btnEl = document.querySelector(".addBtn");
-        btnEl.addEventListener('click', (e)=>{
-            const text = addEl.value;
+      // input 엔터기에 대한 이벤트
+      const addEl = document.querySelector(".add");
+      addEl.addEventListener("keydown", (e) => {
+        const keyCode = e.keyCode;
+        const text = addEl.value;
+        if(isValid(text)){
+          if (keyCode === 13) {
             addNode(text);
-            addEl.value="";
+            addEl.value = "";
+          }
+        }
+      });
+
+      // 입력버튼 클릭했을 때에 대한 이벤트
+      const btnEl = document.querySelector(".addBtn");
+      btnEl.addEventListener("click", (e) => {
+        const text = addEl.value;
+        if(isValid(text)) {
+          addNode(text);
+          addEl.value = "";
+        }
+      });
+
+      let oldEl = null;
+      let oldYpos = null;
+
+      isEdited = [];
+      function addNode(text) {
+        const containerEl = document.querySelector(".container");
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("todo");
+        newDiv.setAttribute("draggable", true);
+
+        // 드래그 이벤트
+        newDiv.addEventListener("dragstart", (e) => {
+          oldEl = e.target;
+          oldYpos = e.pageY; // 현재 페이지에서의 Y좌표값
+        });
+        newDiv.addEventListener("dragover", (e) => {
+          e.preventDefault();
+        });
+        newDiv.addEventListener("drop", (e) => {
+          console.log("old: ", oldEl, oldYpos);
+          console.log("target", e.target, e.pageY);
+
+          const parentNode = e.target.parentNode;
+
+          const ChildNodes = Array.from(parentNode.childNodes);
+          
+          const oldIdx = ChildNodes.indexOf(oldEl);
+          const targetIdx = ChildNodes.indexOf(e.target);
+
+          ChildNodes[oldIdx] = e.target;
+          ChildNodes[targetIdx] = oldEl;
+
+          //모든 노드 삭제 후 다시 자식 재배치
+          while (parentNode.firstChild) {
+            parentNode.removeChild(parentNode.firstChild);
+          }
+          ChildNodes.forEach((el) => {
+            parentNode.appendChild(el);
+          });
+
+          e.preventDefault();
+        });
+
+        const span1 = document.createElement("input");
+        const editBtn = document.createElement("button");
+        const delBtn = document.createElement("button");
+        span1.value = text;
+        span1.readOnly = true;
+
+        isEdited.push(false);
+        editBtn.setAttribute('data-id',isEdited.length-1);
+        editBtn.innerHTML = "수정";
+
+        delBtn.innerHTML = "삭제";
+
+        editBtn.addEventListener('click',()=>{
+          const container = editBtn.parentNode.parentNode;
+          const inputEls = container.querySelectorAll('input');
+          const id = editBtn.getAttribute('data-id');
+          if(isEdited[id]=!isEdited[id]){
+                    inputEls.forEach((item)=>{
+                        if(id === item.getAttribute('data-id')){
+                            item.readOnly=false;
+                        }
+                    })
+                }else{
+                    inputEls.forEach((item)=>{
+                        if(id === item.getAttribute('data-id')){
+                            item.readOnly=true;
+                        }
+                    })
+                }
         })
 
-        function addNode(text) {
-            const containerEl = document.querySelector('.container');
-            const newDiv = document.createElement('div');
-            newDiv.classList.add("todo")
 
-            const span1 = document.createElement('span')
-            const span2 = document.createElement('span')
-            span1.innerHTML=text;
-            span2.innerHTML="| 삭제"
-            span2.setAttribute('style','cursor:pointer')
+        delBtn.addEventListener("click", () => {
+          const delTodo = delBtn.parentNode; // 부모노드를 찾는법
+          delTodo.remove(); // 노드 삭제
+        });
 
-            span2.addEventListener('click',()=>{
-                const delTodo = span2.parentNode; // 부모노드를 찾는법
-                delTodo.remove(); // 노드 삭제
-            })
+        newDiv.appendChild(span1);
+        newDiv.appendChild(editBtn);
+        newDiv.appendChild(delBtn);
+        // containerEl.appendChild(newDiv); append는 제일마지막에 붙임 push
+        containerEl.prepend(newDiv); // 나중에 입력한게 제일 위로 올라온다.
+      }
 
-
-            newDiv.appendChild(span1);
-            newDiv.appendChild(span2);
-            // containerEl.appendChild(newDiv); append는 제일마지막에 붙임 push
-            containerEl.prepend(newDiv); // 나중에 입력한게 제일 위로 올라온다.
-            
+      function isValid(text) {
+        if(text.trim()===""){
+          return false;
         }
-
+        return true;
+      }
+      
     </script>
-</body>
+  </body>
 </html>

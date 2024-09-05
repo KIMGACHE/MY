@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="javascript:void(0)" class="btn1">예약실행</a>
+    <a href="javascript:void(0)" class="btn2">예약취소</a>
+
+    <div class="d1"></div>
+
+    <script>
+      // 동기(Synchronous) : 미리 약속된 규칙을 근거로 동작하는 방식
+      // ex) 홈페이지 자체를 서버에서 받을 때 서버에 요청한 응답이 오기전까지는 아무것도 못하는 것
+      // JS에서의 동기는 절차대로 코드를 실행한다는 것.
+      // 비동기(Asynchronous) : 약속된 규칙대로 동작하지 않고 특정한 방식으로 동작
+      // ex) 홈페이지 내에 부분적으로 요청을 보내고 응답을 받을 때 나머지 부분은 요청하던 말던 알아서 동작하는 것
+      // JS에서의 비동기는 절차대로 코드를 실행하지 않는다는 것.
+      // JS는 스레드(작업흐름)를 나누는 것처럼 보이지만 실제론 그렇지는 않다(JAVA는 실제로 스레드를 나눈다.)
+
+      const btn1 = document.querySelector(".btn1");
+      const btn2 = document.querySelector(".btn2");
+      const d1 = document.querySelector(".d1");
+      let reservedId=null;
+      btn1.addEventListener("click", () => {
+        reservedId = setTimeout(() => {
+          d1.innerHTML += "HELLOWORLD";
+        }, 3000);
+        d1.innerHTML += "HelloWorld2";
+        console.log(reservedId);
+      });
+
+      btn2.addEventListener("click",()=>{
+        if(reservedId!=null){clearTimeout(reservedId);}
+      })
+
+      // setTimemout : 예약함수(일정시간 이후 특정작업을 수행 - 비동기처리함수)
+      // 지연시간 단위는 ms인듯? 1000ms=1s
+      // 예약번호를 반환받을 수 있다. 이를 통해 예약을 취소할 수 있다. clearTimeout();
+    </script>
+  </body>
+</html>

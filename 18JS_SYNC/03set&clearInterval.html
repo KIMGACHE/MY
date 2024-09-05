@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="n"></div>
+    <hr>
+    <div class="box"></div>
+    <hr>
+    <div class="box2"></div>
+
+    <script>
+        let n=0;
+        const nEl = document.querySelector('.n');
+        const box = document.querySelector('.box');
+        let id1, id2;
+        id1 = setInterval(()=>{
+            n++;
+            box.innerHTML=n;
+            nEl.innerHTML=n;
+        },1000)
+        
+        const box2 = document.querySelector('.box2');
+        id2 = setInterval(()=>{
+            n++;
+            box2.innerHTML=n;
+            nEl.innerHTML=n;
+        },2000)
+        // 동일한 공간에 여러 스레드가 접근할 때 작업이 이상해질 수 있다.
+        // 따라서 하나의 스레드가 접근했을 때 그 이외의 스레드는 접근하지 못하도록 해야한다. (임계영역)
+    </script>
+
+
+</body>
+</html>

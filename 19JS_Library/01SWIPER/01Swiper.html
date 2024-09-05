@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- swiper CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        .swiper{
+            height: 500px;
+        }
+        .swiper>.swiper-wrapper{
+            height: 100%;
+        }
+        .swiper>.swiper-wrapper>.swiper-slide{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+  </head>
+  <body>
+    <!-- SWIPER.js검색하면 나오는 사이트에서 Get Started클릭 / CDN을 통해 사용하는 방식 사용 -->
+    <!-- add swiper HTML Layout을 그대로 사용해보기 -->
+    <div class="wrapper">
+      <header></header>
+      <main>
+        <section>
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide"><img src="./image/banner1.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="./image/banner2.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="./image/banner3.jpg" alt=""></div>
+              <div class="swiper-slide"><img src="./image/banner4.jpg" alt=""></div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+          </div>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+
+    <script>
+        // const swiper_01 = new Swiper('선택자',{옵션오브젝트}); 키:밸류 형태의 오브젝트
+        // 수평배치 슬라이드
+        const swiper_01 = new Swiper('.swiper',{
+            direction: 'horizontal', // 슬라이드 방향 : 수평(default값)
+            autoplay: { // 자동으로 동작할 것인지 여부
+                delay: 1000,
+                pauseOnMouseEnter: true, // 마우스가 슬라이드 영역에 들어갔을 때 정지할 거냐 안할거냐
+
+            },
+            loop: true, // 슬라이드 마지막으로 가더라도 계속해서 슬라이드 반복
+            pagination: { // 페이징 처리
+                el:'.swiper-pagination', // 페이지네이션을 사용할 선택자
+                clickable: 'true', // 클릭하면 해당페이지로 이동하게 할것인가
+                type: 'bullets', // 생긴모양(default), fraction, progressbar, bullets
+            },
+            navigation: { // next, prev
+                nextEl:'.swiper-button-next',
+                prevEl:'.swiper-button-prev',
+            },
+            mousewheel:true, // 휠로 슬라이드를 움직일 수 있게할 것인가
+            effect: 'fade', // 전환효과 fade, scroll
+
+        });
+    </script>
+
+  </body>
+</html>
