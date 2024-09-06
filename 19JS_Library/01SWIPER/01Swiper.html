@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
+    <!-- Google Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+      </style>
+
     <!-- swiper CDN -->
     <link
       rel="stylesheet"
@@ -15,6 +27,7 @@
     <style>
         .swiper{
             height: 500px;
+            position:relative;
         }
         .swiper>.swiper-wrapper{
             height: 100%;
@@ -24,6 +37,43 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        .swiper-button-next,
+        .swiper-button-prev{
+          display:block;
+          width:50px;
+          height:50px;
+          border: 1px solid;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          background-color: gray;
+          border: 0;
+        }
+        .swiper-button-prev::after{
+          content:'';
+        }
+        
+        .swiper-button-next::after{
+          content:'';
+        }
+        .swiper-button-next>span,
+        .swiper-button-prev>span{
+          font-size:2rem;
+          color:white;
+          font-weight: 100;
+        }
+        .swiper-pagination-bullet{
+          width: 15px;
+          height: 15px;
+          border: 1px solid;
+          border-radius: 15px !important;
+          transition:.3s;
+        }
+        .swiper-pagination-bullet-active{
+          background-color: orange;
+          width: 25px;
         }
     </style>
 
@@ -49,8 +99,16 @@
             <div class="swiper-pagination"></div>
 
             <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev">
+              <span class="material-symbols-outlined">
+                arrow_left_alt
+              </span>
+            </div>
+            <div class="swiper-button-next">
+              <span class="material-symbols-outlined">
+              arrow_right_alt
+              </span
+            ></div>
 
             <!-- If we need scrollbar -->
             <div class="swiper-scrollbar"></div>

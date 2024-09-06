@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Google Icon -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+
+    <!-- swiper CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+      .swiper {
+        height: 500px;
+        position: relative;
+      }
+      .swiper > .swiper-wrapper {
+        height: 100%;
+      }
+      .swiper > .swiper-wrapper > .swiper-slide {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid;
+      }
+      .swiper>.swiper-button-prev,
+      .swiper>.swiper-button-next{
+        border: 3px solid;
+        border-radius: 50%;
+        color: royalblue;
+        width: 50px;
+        height: 50px;
+      }
+      .swiper>.swiper-button-prev{
+        position: absolute;
+        top: 90%;
+        left: 25%;
+      }
+      .swiper>.swiper-button-next{
+        position: absolute;
+        top:90%;
+        right: 70%;
+      }
+      .swiper>.swiper-pagination{
+        width: 200px;
+        height: auto;
+        position: absolute;
+        font-size: 1.5rem;
+        font-weight: 600;
+        left:28%;
+        color:royalblue;
+      }
+      .swiper>.swiper-start{
+        position: absolute;
+        top: 85.5%;
+        left:22%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        border: 3px solid;
+        border-radius: 50%;
+
+        font-size: 1.5rem;
+        font-weight: 600;
+        color:royalblue;
+
+        width:50px;
+        height:50px;
+        z-index:2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/240826_poster.png" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/01_interior_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/02_youtube_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/03_web_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/240826_poster.png" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/01_interior_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/02_youtube_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/03_web_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/240826_poster.png" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/01_interior_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/02_youtube_pc.jpg" alt=""
+            /></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:void(0)"
+              ><img src="https://se.sbsart.com/2022/img/banner/03_web_pc.jpg" alt=""
+            /></a>
+          </div>
+        </div>
+        <div class="swiper-start">||</div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const swiper = new Swiper(".swiper", {
+      direction: "horizontal", // 슬라이드 방향 : 수평(default값)
+      autoplay: {
+        // 자동으로 동작할 것인지 여부
+        delay: 1000,
+        pauseOnMouseEnter: true, // 마우스가 슬라이드 영역에 들어갔을 때 정지할 거냐 안할거냐
+      },
+      loop: true, // 슬라이드 마지막으로 가더라도 계속해서 슬라이드 반복
+      pagination: {
+        // 페이징 처리
+        el: ".swiper-pagination", // 페이지네이션을 사용할 선택자
+        clickable: "true", // 클릭하면 해당페이지로 이동하게 할것인가
+        type: "fraction", // 생긴모양(default), fraction, progressbar, bullets
+      },
+      navigation: {
+        // next, prev
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      effect: "scroll", // 전환효과 fade, scroll
+    });
+  </script>
+</html>

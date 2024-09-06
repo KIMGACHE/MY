@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- swiper CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <style>
+        .swiper{
+            width:300px;
+            height:50px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header></header>
+        <main>
+          <section>
+            <!-- Slider main container -->
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><a href="javascript:void(0)">SLIDE_01</a></div>
+                <div class="swiper-slide"><a href="javascript:void(0)">SLIDE_02</a></div>
+                <div class="swiper-slide"><a href="javascript:void(0)">SLIDE_03</a></div>
+                <div class="swiper-slide"><a href="javascript:void(0)">SLIDE_04</a></div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer></footer>
+      </div>
+
+      <script>
+        const slide = new Swiper('.swiper',{
+            direction: 'vertical', // 슬라이드 방향 : 수직
+            autoplay: {
+                delay: 1000,
+                pauseOnMouseEnter: true,
+            },
+            loop:true,
+        })
+      </script>
+</body>
+</html>
